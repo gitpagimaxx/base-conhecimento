@@ -1,0 +1,23 @@
+.btn-sm {
+    padding:3px 5px 2px 5px;
+}
+
+.margin-bottom-3 {
+    margin-bottom: 3px;
+}
+
+.card {
+    border-color: #2c6a9d;
+}
+
+.card-header {
+    background: #082028;
+    color: #fff;
+}
+
+/*body {
+    background: radial-gradient(circle, #ffffff 10%, transparent 11%);
+    background-size: 2em 2em;
+    background-color: #717375;
+    opacity: 1
+}*/
