@@ -43,7 +43,7 @@ class UserController extends Controller
 
         ];
 
-        return view('blog-admin.users.new', compact('typeUserList'));
+        return view('dashboard.users.new', compact('typeUserList'));
     }
 
     /**
@@ -71,10 +71,6 @@ class UserController extends Controller
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
-            'email' => $data['phone'],
-            'email' => $data['twitter'],
-            'email' => $data['instagram'],
-            'email' => $data['facebook'],
             'password' => Hash::make($data['password']),
             'phone' => $data['phone'],
         ]);
@@ -111,8 +107,11 @@ class UserController extends Controller
     public function profile($name, $id)
     {
         try {
-            
-
+            $item = DB::table('users')
+            ->select('users.*')
+            ->where('users.id', '=', $id)
+            ->get();
+            return view('dashboard.users.edit', compact('item' ?? ''));
 
         } catch (\Throwable $th) {
             throw $th;
@@ -132,7 +131,7 @@ class UserController extends Controller
             ->where('users.id', '=', $id)
             ->paginate(10);
         Paginator::defaultView('pagination::bootstrap-4');
-        return view('blog-admin.users.edit', compact('item' ?? ''));
+        return view('dashboard.users.edit', compact('item' ?? ''));
     }
 
     /**
@@ -144,7 +143,20 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        try {
+            $data = $request->all();
+            $response = User::find($id)->update($data);
+
+            // atualizar profile
+            if ($response) { 
+                $status = true;
+                $message = 'Salvo com sucesso';
+            } 
+
+            return redirect('dashboard/profile/xxx/'.$id)->with(['message'=>$message ?? $errorMessage, 'status'=>$status ?? false]);
+        } catch (\Throwable $th) {
+            dd($th->getMessage());
+        }
     }
 
     /**

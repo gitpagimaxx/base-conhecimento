@@ -75,7 +75,7 @@ setlocale(LC_MONETARY, 'pt_BR');
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a href="{{ url(ENV('APP_URL')) }}/profile" class="dropdown-item">
+                                    <a href="{{ url(ENV('APP_URL')) }}/dashboard/profile/{{ Str::slug(Auth::user()->name) }}/{{ Auth::user()->id }}" class="dropdown-item">
                                         {{ __('Perfil') }}
                                     </a>
                                     <a href="{{ url(ENV('APP_URL')) }}/quota" class="dropdown-item">
