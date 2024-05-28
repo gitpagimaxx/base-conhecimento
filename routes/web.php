@@ -35,10 +35,10 @@ Route::resource('/dashboard/conhecimento', App\Http\Controllers\BaseConhecimento
 
 Route::get('/dashboard/users/new', [App\Http\Controllers\UserController::class, 'new']);
 Route::get('/dashboard/users/{id}/delete', [App\Http\Controllers\UserController::class, 'delete']);
-Route::get('/profile/{name}/{id}', [App\Http\Controllers\UserController::class, 'profile']);
+Route::get('/dashboard/profile/{name}/{id}', [App\Http\Controllers\UserController::class, 'profile']);
 Route::get('/dashboard/users/update-password/{id}', [App\Http\Controllers\UserController::class, 'updatePassword']);
 Route::get('/dashboard/users/update-pic-profile/{id}', [App\Http\Controllers\UserController::class, 'updatePicProfile']);
-Route::resource('/dashboard/users', App\Http\Controllers\UserController::class)->except('create');
+Route::resource('/dashboard/profile', App\Http\Controllers\UserController::class)->except('create');
 
 Route::get('/dashboard/perfil/create', [App\Http\Controllers\UserController::class, 'create']);
 Route::get('/dashboard/perfil/{id}/delete', [App\Http\Controllers\UserController::class, 'delete']);

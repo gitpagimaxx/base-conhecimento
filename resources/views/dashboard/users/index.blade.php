@@ -1,4 +1,5 @@
 @extends('layouts.app')
+@section('titulo', 'Perfil')
 
 @section('content')
 <div class="container">
@@ -37,8 +38,8 @@
                                         <td>{{ $item->name }}</td>
                                         <td>{{ $item->email }}</td>
                                         <td style="width:130px;">
-                                            <a href="{{ url(ENV('APP_URL')) }}/dashboard/users/{{ $item->id }}/edit" class="btn btn-sm btn-success" data-bs-toggle="tooltip" data-bs-placement="top" title="Detalhar"><i class="fas fa-edit"></i></a>
-                                            <a href="{{ url(ENV('APP_URL')) }}/dashboard/users/{{ $item->id }}/delete" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></a>
+                                            <a href="{{ url(ENV('APP_URL')) }}/dashboard/perfil/{{ $item->id }}/edit" class="btn btn-sm btn-success" data-bs-toggle="tooltip" data-bs-placement="top" title="Detalhar"><i class="fas fa-edit"></i></a>
+                                            <a href="{{ url(ENV('APP_URL')) }}/dashboard/perfil/{{ $item->id }}/delete" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></a>
                                         </td>
                                     </tr>
                                 @endforeach

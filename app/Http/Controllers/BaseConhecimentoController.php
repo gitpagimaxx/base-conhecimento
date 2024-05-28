@@ -175,19 +175,19 @@ class BaseConhecimentoController extends Controller
     {
         try {
             // atualizar registro
-        $data = $request->all();
-        $response = BaseConhecimento::find($id)->update($data);
+            $data = $request->all();
+            $response = BaseConhecimento::find($id)->update($data);
 
-        // atualizar tag
-        if ($response) { 
-            $status = true;
-            $message = 'Editado com sucesso';
+            // atualizar tag
+            if ($response) { 
+                $status = true;
+                $message = 'Editado com sucesso';
 
-            (new BaseTagController)->associarBaseIdTagId($id, $data['TagId']);
-            (new AnexoController)->uploadAnexo($request, $id);
-        } 
+                (new BaseTagController)->associarBaseIdTagId($id, $data['TagId']);
+                (new AnexoController)->uploadAnexo($request, $id);
+            } 
 
-        return redirect('dashboard/conhecimento')->with(['message'=>$message ?? $errorMessage, 'status'=>$status ?? false]);
+            return redirect('dashboard/conhecimento')->with(['message'=>$message ?? $errorMessage, 'status'=>$status ?? false]);
         
         } catch (\Throwable $th) {
             dd($th);
