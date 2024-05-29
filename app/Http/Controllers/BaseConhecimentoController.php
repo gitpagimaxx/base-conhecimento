@@ -187,7 +187,7 @@ class BaseConhecimentoController extends Controller
                 (new AnexoController)->uploadAnexo($request, $id);
             } 
 
-            return redirect('dashboard/conhecimento')->with(['message'=>$message ?? $errorMessage, 'status'=>$status ?? false]);
+            return redirect('dashboard/conhecimento/'.$id)->with(['message'=>$message ?? $errorMessage, 'status'=>$status ?? false]);
         
         } catch (\Throwable $th) {
             dd($th);
