@@ -57,7 +57,7 @@
                 <div class="card-footer">
                     <input type="hidden" name="UserId" value="{{ Auth::user()->id }}">
                     <button type="submit" class="btn btn-primary"><i class="fas fa-save"></i>&nbsp;Salvar</button>&nbsp;
-                    <a href="{{ url(ENV('APP_URL')) }}/dashboard/conhecimento" class="btn btn-outline-secondary"><i class="fas fa-arrow-left"></i>&nbsp;Cancelar</a>
+                    <a href="{{ url(ENV('APP_URL')) }}/dashboard/conhecimento/{{$item[0]->id}}" class="btn btn-outline-secondary"><i class="fas fa-arrow-left"></i>&nbsp;Cancelar</a>
                 </div>
 
             </div>
