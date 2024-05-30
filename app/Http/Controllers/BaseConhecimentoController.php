@@ -59,7 +59,7 @@ class BaseConhecimentoController extends Controller
             
             if (Request('tipoBusca') == 1) {
                 $list = DB::table('base_conhecimento')
-                ->select('base_conhecimento.id', 'base_conhecimento.Titulo', "base_conhecimento.created_at")
+                ->select('base_conhecimento.id', 'base_conhecimento.Titulo', "base_conhecimento.created_at", 'xxxx')
                 ->where($where)
                 ->where($whereTipoBusca)
                 ->orWhere($orWhereTipoBusca)
@@ -72,7 +72,7 @@ class BaseConhecimentoController extends Controller
 
                 $list = DB::table('base_conhecimento')
                 ->join('base_tag', 'base_conhecimento.id', '=', 'base_tag.BaseId')
-                ->select('base_conhecimento.id', 'base_conhecimento.Titulo', "base_conhecimento.created_at")
+                ->select('base_conhecimento.id', 'base_conhecimento.Titulo', 'base_conhecimento.created_at', 'base_tag.TagId')
                 ->where($where)
                 ->whereIn('base_tag.TagId', $tags)
                 ->orderBy('base_conhecimento.created_at', 'desc')
@@ -89,13 +89,18 @@ class BaseConhecimentoController extends Controller
             ->orderBy('created_at', 'desc')
             ->paginate(10);
             
+            foreach ($list as $key => $value) {
+                $value->Tags = (new TagController)->tagPorConhecimento($value->id);
+                $list->Tags = explode(',', $value->Tags);
+            }
         }
 
         $qtdeRegistros = $list->total();
+        $tags = (new TagController)->tags();
 
         Paginator::defaultView('pagination::bootstrap-4');
 
-        return view('dashboard.baseconhecimento.index', compact('list', 'palavra', 'qtdeRegistros'));
+        return view('dashboard.baseconhecimento.index', compact('list', 'palavra', 'qtdeRegistros', 'tags'));
     }
 
     /**
