@@ -17,6 +17,7 @@ class CreateMemoriasTable extends Migration
             $table->id();
             $table->string('Atividade', 255);
             $table->string('Detalhamento', 500)->nullable();
+            $table->datetime('DtHrMemotia')->nullable();
             $table->integer('UserId')->default(1);
             $table->boolean('Status')->default(1);
             $table->timestamps();

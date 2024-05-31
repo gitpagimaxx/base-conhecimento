@@ -111,14 +111,20 @@ class MemoriasController extends Controller
     public function store(Request $request)
     {
         try {
-            $dados = $request->all();
-            $response = Memorias::create($dados);
+            $entity = $request->all();
+            $response = Memorias::create($entity);
 
             if ($response) { 
                 $status = true;
                 $message = 'Criada com sucesso';
-            } 
-            return redirect('dashboard/memorias')->with(['data'=>$response ?? '', 'message'=>$message ?? $errorMessage, 'status'=>$status ?? false]);
+            }
+
+            return redirect('dashboard/memorias/'.$response->id)
+                ->with([
+                    'data'=>$response ?? '', 
+                    'message'=>$message ?? $errorMessage, 
+                    'status'=>$status ?? false
+                ]);
 
         } catch (\Throwable $th) {
             $message = $th;
@@ -179,6 +185,7 @@ class MemoriasController extends Controller
                 $status = true;
                 $message = 'Editado com sucesso';
             } 
+            
             return redirect('dashboard/memorias/'.$id)->with(['message'=>$message ?? $errorMessage, 'status'=>$status ?? false]);
 
         } catch (\Throwable $th) {

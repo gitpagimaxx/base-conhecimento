@@ -53,7 +53,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                @if (count($list) > 0)
+                                @if ($list ?? 0 && count($list) > 0)
                                     @foreach ($list ?? '' as $item)
                                         <tr>
                                             <td><a href="{{ url(ENV('APP_URL')) }}/dashboard/memorias/{{ $item->id }}">{{ $item->Atividade }}</a></td>    
@@ -75,14 +75,16 @@
 
                     <div class="row mt-2">
                         <div class="col text-right">
+                            @if ($list ?? 0 != null)
                             {{ $list->links() }}
+                            @endif
                         </div>
                     </div>
                     
                 </div>
 
                 <div class="card-footer">
-                    <small><b>{{$qtdeRegistros}}</b> registros foram encontrados</small>
+                    <small><b>{{$qtdeRegistros ?? 0}}</b> registros foram encontrados</small>
                 </div>
             </div>
         </div>
