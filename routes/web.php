@@ -46,7 +46,7 @@ Route::resource('/dashboard/perfil', App\Http\Controllers\UserController::class)
 
 Route::get('/dashboard/memorias/criar', [App\Http\Controllers\MemoriasController::class, 'criar']);
 Route::get('/dashboard/memorias/{id}/delete', [App\Http\Controllers\MemoriasController::class, 'delete']);
-Route::resource('/dashboard/memorias', App\Http\Controllers\MemoriasController::class)->except('create');
+Route::resource('/dashboard/memorias', App\Http\Controllers\MemoriasController::class)->except('criar');
 
 Route::get('/dashboard/midias/criar', [App\Http\Controllers\MidiaController::class, 'criar']);
 Route::get('/dashboard/midias/{id}/delete', [App\Http\Controllers\MidiaController::class, 'delete']);

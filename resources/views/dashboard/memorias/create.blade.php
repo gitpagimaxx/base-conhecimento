@@ -1,13 +1,13 @@
 @extends('layouts.app')
-@section('titulo', 'Cadastrar Memória')
+@section('titulo', 'Criar Memória')
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-12">
-            <form action="{{ route('memorias.store') }}" method="POST" enctype="multipart/form-data">
+            <form action="{{ route('memorias.store') }}" method="POST">
             @csrf
             <div class="card">
-                <h5 class="card-header"><b>Cadastrar Memória</b></h5>
+                <h5 class="card-header"><b>Criar Memória</b></h5>
 
                 <div class="card-body">
                     @if (session('status'))

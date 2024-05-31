@@ -54,6 +54,7 @@
                                 <thead>
                                     <tr>
                                         <th>Título</th>
+                                        <th>Tags</th>
                                         <th>Data</th>
                                         <th>&nbsp;</th>
                                     </tr>
@@ -63,7 +64,12 @@
                                     @foreach ($list ?? '' as $item)
                                     <tr>
                                         <td><a href="{{ url(ENV('APP_URL')) }}/dashboard/conhecimento/{{ $item->id }}">{{ $item->Titulo }}</a></td>    
-                                        <td style="width:160px;">{{ date('d/m/Y H:i', strtotime($item->created_at)) }}</td>
+                                        <td style="width:200px;"> 
+                                            @foreach ($item->Tags as $key => $value)
+                                                <span class="badge text-white bg-primary mr-1">{{ $value->Tag; }}</span>
+                                            @endforeach
+                                        </td>
+                                        <td style="width:130px;">{{ date('d/m/Y H:i', strtotime($item->created_at)) }}</td>
                                         <td style="width:120px;" class="text-right">
                                             <a href="{{ url(ENV('APP_URL')) }}/dashboard/conhecimento/{{ $item->id }}" class="btn btn-sm btn-primary" data-bs-toggle="tooltip" data-bs-placement="top" title="Detalhar"><i class="fas fa-info-circle"></i></a>
                                             <a href="{{ url(ENV('APP_URL')) }}/dashboard/conhecimento/{{ $item->id }}/edit" class="btn btn-sm btn-success" data-bs-toggle="tooltip" data-bs-placement="top" title="Editar"><i class="fas fa-edit"></i></a>
