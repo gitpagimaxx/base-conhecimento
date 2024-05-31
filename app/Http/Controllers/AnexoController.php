@@ -10,7 +10,7 @@ class AnexoController extends Controller
     public function anexoPorBaseId($baseId)
     {
         try {
-            return Anexo::where([ ['Status', '=', '1'], ['UserId', '=', auth()->user()->id], [ 'BaseId', '=', $baseId ] ])->get();
+            return Anexo::where([ ['Status', '=', '1'], ['UserId', '=', auth()->user()->id], [ 'EntidadeId', '=', $baseId ] ])->get();
         } catch (\Throwable $th) {
             dd($th);
         }
@@ -35,7 +35,7 @@ class AnexoController extends Controller
 
                 $requestData = $request->all();
                 $entityAnexo = [
-                    'BaseId' => $baseId,
+                    'EntidadeId' => $baseId,
                     'NomeAnexo' => $nomeAnexo,
                     'Anexo' => $diretorio.'/'.$nomeAnexo,
                     'TipoAnexo' => $anexo->getClientOriginalExtension(),

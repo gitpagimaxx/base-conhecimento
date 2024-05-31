@@ -10,7 +10,7 @@ class Anexo extends Model
     use HasFactory;
 
     protected $fillable = [ 
-        'BaseId', 
+        'EntidadeId', 
         'NomeAnexo', 
         'Anexo', 
         'TipoAnexo', 

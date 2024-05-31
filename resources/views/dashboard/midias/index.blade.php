@@ -11,7 +11,7 @@
 
                     <div class="row mb-3">
                         <div class="col">
-                            <a href="{{ url(ENV('APP_URL')) }}/dashboard/midias/criar" class="btn btn-primary"><i class="fas fa-plus-circle"></i>&nbsp;Novo</a>
+                            <a href="{{ url(ENV('APP_URL')) }}/dashboard/midias/novo" class="btn btn-primary"><i class="fas fa-plus-circle"></i>&nbsp;Novo</a>
                         </div>
                     </div>
                     @if(!empty(Session::get('message')))

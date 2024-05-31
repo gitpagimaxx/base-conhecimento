@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateAnexoTable extends Migration
+class CreateMidiaTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,15 @@ class CreateAnexoTable extends Migration
      */
     public function up()
     {
-        Schema::create('anexo', function (Blueprint $table) {
+        Schema::create('midia', function (Blueprint $table) {
             $table->id();
-            $table->integer('EntidadeId')->default(1);
-            $table->string('NomeAnexo', 500)->nullable();
-            $table->string('Anexo', 500)->nullable();
-            $table->string('TipoAnexo', 5)->nullable();
-            $table->string('Descricao', 255)->nullable();
+            $table->integer('TipoMidiaId')->default(1);
+            $table->integer('OrigemMidiaId')->default(1);
+            $table->string('Titulo', 255);
+            $table->string('Resenha', 500)->nullable();
+            $table->integer('AnexoId')->nullable();
+            $table->integer('Avaliacao')->default(0);
+            $table->datetime('Data')->nullable();
             $table->integer('UserId')->default(1);
             $table->boolean('Status')->default(1);
             $table->timestamps();
@@ -33,6 +35,6 @@ class CreateAnexoTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('anexo');
+        Schema::dropIfExists('midia');
     }
 }

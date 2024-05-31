@@ -48,9 +48,9 @@ Route::get('/dashboard/memorias/criar', [App\Http\Controllers\MemoriasController
 Route::get('/dashboard/memorias/{id}/delete', [App\Http\Controllers\MemoriasController::class, 'delete']);
 Route::resource('/dashboard/memorias', App\Http\Controllers\MemoriasController::class)->except('criar');
 
-Route::get('/dashboard/midias/criar', [App\Http\Controllers\MidiaController::class, 'criar']);
+Route::get('/dashboard/midias/novo', [App\Http\Controllers\MidiaController::class, 'novo']);
 Route::get('/dashboard/midias/{id}/delete', [App\Http\Controllers\MidiaController::class, 'delete']);
-Route::resource('/dashboard/midias', App\Http\Controllers\MidiaController::class)->except('create');
+Route::resource('/dashboard/midias', App\Http\Controllers\MidiaController::class)->except('novo');
 
 Route::get('/login', function () {
     return view('auth.login');
