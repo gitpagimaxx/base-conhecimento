@@ -53,11 +53,11 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                @if (!isset($list) && count($list) > 0)
+                                @if (count($list) > 0)
                                     @foreach ($list ?? '' as $item)
                                         <tr>
-                                            <td><a href="{{ url(ENV('APP_URL')) }}/dashboard/midias/{{ $item->id }}">{{ $item->Atividade }}</a></td>    
-                                            <td style="width:130px;">{{ date('d/m/Y', strtotime($item->DtHrMemoria)) }}</td>
+                                            <td><a href="{{ url(ENV('APP_URL')) }}/dashboard/midias/{{ $item->id }}">{{ $item->Titulo }}</a></td>    
+                                            <td style="width:130px;">{{ date('d/m/Y', strtotime($item->Data)) }}</td>
                                             <td style="width:130px;">
                                                 <a href="{{ url(ENV('APP_URL')) }}/dashboard/midias/{{ $item->id }}" class="btn btn-sm btn-primary" data-bs-toggle="tooltip" data-bs-placement="top" title="Detalhar"><i class="fas fa-info-circle"></i></a>
                                                 <a href="{{ url(ENV('APP_URL')) }}/dashboard/midias/{{ $item->id }}/edit" class="btn btn-sm btn-success" data-bs-toggle="tooltip" data-bs-placement="top" title="Editar"><i class="fas fa-edit"></i></a>
@@ -75,7 +75,7 @@
 
                     <div class="row mt-2">
                         <div class="col text-right">
-                            @if (!isset($list)) {{ $list->links() }} @endif
+                            {{ $list->links() }}
                         </div>
                     </div>
                     

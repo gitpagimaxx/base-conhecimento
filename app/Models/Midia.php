@@ -21,7 +21,7 @@ class Midia extends Model
         'Status',
     ];
 
-    protected $dates = ['created_at', 'update_at'];
+    protected $dates = ['created_at', 'update_at', 'Data'];
 
     protected $guarded = ['id'];
     protected $table = 'midia';
