@@ -193,6 +193,22 @@ class MidiaController extends Controller
     }
 
     /**
+     * Show the form for delete the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function delete($id)
+    {
+        try {
+            $item = $this->midiaPorId($id);
+            return view('dashboard.midias.delete', compact('item'));
+        } catch (\Throwable $th) {
+            dd($th);
+        }
+    }
+
+    /**
      * Remove the specified resource from storage.
      *
      * @param  \App\Models\Midia  $midia
@@ -201,7 +217,8 @@ class MidiaController extends Controller
     public function destroy($id)
     {
         try {
-            return view('dashboard.midias');
+            Midia::where('id', $id)->update(['Status' => '0']);
+            return redirect('dashboard/midias')->with('message', 'Deletado com sucesso');
         } catch (\Throwable $th) {
             dd($th);
         }

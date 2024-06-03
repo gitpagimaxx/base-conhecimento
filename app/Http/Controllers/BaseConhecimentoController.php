@@ -201,9 +201,9 @@ class BaseConhecimentoController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
+     * Show the form for delete the specified resource.
      *
-     * @param  \App\Models\Category  $post
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function delete($id)
@@ -211,7 +211,6 @@ class BaseConhecimentoController extends Controller
         try {
             $item = $this->conhecimentoPorId($id);
             return view('dashboard.baseconhecimento.delete', compact('item'));
-
         } catch (\Throwable $th) {
             dd($th);
         }
