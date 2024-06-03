@@ -13,16 +13,16 @@ class Midia extends Model
         'TipoMidiaId',
         'OrigemMidiaId',
         'Titulo',
-        'Descricao',
-        'Capa',
+        'Resenha',
+        'AnexoId',
         'Avaliacao',
-        'DtHr',
+        'Data',
         'UserId',
         'Status',
     ];
 
-    protected $dates = ['created_at', 'update_at'];
+    protected $dates = ['created_at', 'update_at', 'Data'];
 
     protected $guarded = ['id'];
-    protected $table = 'midias';
+    protected $table = 'midia';
 }

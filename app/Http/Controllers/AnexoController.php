@@ -7,10 +7,10 @@ use Illuminate\Http\Request;
 
 class AnexoController extends Controller
 {
-    public function anexoPorBaseId($baseId)
+    public function anexoPorBaseId($entidadeId)
     {
         try {
-            return Anexo::where([ ['Status', '=', '1'], ['UserId', '=', auth()->user()->id], [ 'BaseId', '=', $baseId ] ])->get();
+            return Anexo::where([ ['Status', '=', '1'], ['UserId', '=', auth()->user()->id], [ 'EntidadeId', '=', $entidadeId ] ])->get();
         } catch (\Throwable $th) {
             dd($th);
         }
@@ -25,7 +25,7 @@ class AnexoController extends Controller
         }
     }
 
-    public function uploadAnexo(Request $request, $baseId)
+    public function uploadAnexo(Request $request, $entidadeId)
     {
         try {
             if ($anexo = $request->file('Anexo')) {
@@ -35,7 +35,7 @@ class AnexoController extends Controller
 
                 $requestData = $request->all();
                 $entityAnexo = [
-                    'BaseId' => $baseId,
+                    'EntidadeId' => $entidadeId,
                     'NomeAnexo' => $nomeAnexo,
                     'Anexo' => $diretorio.'/'.$nomeAnexo,
                     'TipoAnexo' => $anexo->getClientOriginalExtension(),
