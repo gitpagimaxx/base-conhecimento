@@ -31,7 +31,15 @@
                     </p>
 
                     <p>
+                        <img src="{{ url(ENV('APP_URL')) }}/{{ $item->Anexo[0]->Anexo }}" class="img-fluid border rounded border-secondary p-3 border-opacity-50">
+                    </p>
+
+                    <p>
                         Visto em <b>{{ date('d/m/Y', strtotime($item->Data)) }}</b>
+                    </p>
+
+                    <p>
+                        Avaliação <b>{{ $item->Avaliacao }}</b> estrelas
                     </p>
 
                     

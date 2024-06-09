@@ -141,7 +141,7 @@ class MidiaController extends Controller
     public function show($id)
     {
         try {
-            $item = $this->midiaPorId($id);
+            $item = $this->midiaPorId($id); //dd($item);
             $htmlContent = $this->markdownRenderer->toHtml($item->Resenha);
             return view('dashboard.midias.show', compact('item', 'htmlContent'));
         } catch (\Throwable $th) {
