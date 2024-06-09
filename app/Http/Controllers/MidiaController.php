@@ -141,7 +141,7 @@ class MidiaController extends Controller
     public function show($id)
     {
         try {
-            $item = $this->midiaPorId($id); //dd($item);
+            $item = $this->midiaPorId($id);
             $htmlContent = $this->markdownRenderer->toHtml($item->Resenha);
             return view('dashboard.midias.show', compact('item', 'htmlContent'));
         } catch (\Throwable $th) {
@@ -233,7 +233,7 @@ class MidiaController extends Controller
                     ['UserId', '=', auth()->user()->id], 
                     [ 'id', '=', $id ] ])
                 ->firstOrFail();
-            $item->Anexo = (new AnexoController)->anexoPorId($item->id);
+            $item->Anexo = (new AnexoController)->anexoPorEntidadeId($item->id);
             return $item;
         } catch (\Throwable $th) {
             dd($th);

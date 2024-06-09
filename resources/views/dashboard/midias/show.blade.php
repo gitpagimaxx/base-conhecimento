@@ -42,7 +42,6 @@
                         Avaliação <b>{{ $item->Avaliacao }}</b> estrelas
                     </p>
 
-                    
                 </div>
 
                 <div class="card-footer">
