@@ -49,7 +49,14 @@ class DashboardController extends Controller
             ->get();
             $qtdeMemorias = $memorias->count();
 
-            return view('dashboard.dashboard', compact('conhecimento', 'qtdeConhecimento', 'memorias', 'qtdeMemorias'));
+            $midias = DB::table('midia')
+            ->selectRaw('id, Titulo, created_at')
+            ->whereRaw('Status = 1 AND UserId =  '.auth()->user()->id)
+            ->orderBy('id', 'desc')
+            ->get();
+            $qtdeMidias = $midias->count();
+
+            return view('dashboard.dashboard', compact('conhecimento', 'qtdeConhecimento', 'memorias', 'qtdeMemorias', 'midias', 'qtdeMidias'));
         } catch (\Throwable $th) {
             throw $th;
         }
