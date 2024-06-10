@@ -36,7 +36,7 @@
 
                         <div class="form-group">
                             <label for="Anexo">Imagem / Capa</label>
-                            <input type="file" class="form-control col-sm-6" name="Anexo">
+                            <input type="file" class="form-control col-sm-6" name="Anexo" accept="image/x-png,image/gif,image/jpeg">
                         </div>
 
                         <div class="form-group">
