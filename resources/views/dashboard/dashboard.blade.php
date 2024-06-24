@@ -35,7 +35,7 @@
         <div class="col-sm-3 mb-2">
             <div class="card">
                 <div class="card-header">
-                    <b>O que vi</b>
+                    <b>Qtde. O que vi</b>
                 </div>
                 <div class="card-body">
                     <h1 class="text-center">{{ $qtdeMidias }}</h1>
