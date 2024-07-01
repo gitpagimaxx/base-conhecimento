@@ -25,7 +25,7 @@
                         <div class="col">
                             <form action="{{ url(ENV('APP_URL')) }}/dashboard/memorias" method="get" class="row g-3">
                                 <div class="col-11">
-                                    <input type="search" class="form-control" name="buscar" id="buscar" placeholder="Buscar...">
+                                    <input type="search" class="form-control" name="buscar" id="buscar" placeholder="Buscar..." value="{{ $palavra }}">
                                 </div>
                                 <div class="col-1">
                                     <button type="submit" class="btn btn-primary mb-3">Buscar</button>
