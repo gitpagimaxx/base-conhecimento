@@ -26,12 +26,12 @@
                             <form action="{{ url(ENV('APP_URL')) }}/dashboard/conhecimento" method="get" class="row g-3">
                                 <div class="col-sm-2">
                                     <select name="tipoBusca" id="tipoBusca" class="form-control">
-                                        <option value="1">Texto</option>
-                                        <option value="2">Tag</option>
+                                        <option value="1" @if ($tipoBusca == '1') selected @endif>Texto</option>
+                                        <option value="2" @if ($tipoBusca == '2') selected @endif>Tag</option>
                                     </select>
                                 </div>
                                 <div class="col-sm-9">
-                                    <input type="search" class="form-control" name="buscar" id="buscar" placeholder="Buscar...">
+                                    <input type="search" class="form-control" name="buscar" id="buscar" placeholder="Buscar..." value="{{ $palavra }}">
                                 </div>
                                 <div class="col-sm-1">
                                     <button type="submit" class="btn btn-primary mb-3">Buscar</button>
@@ -91,8 +91,6 @@
                         </div>
                     </div>
 
-                    
-                    
                 </div>
 
                 <div class="card-footer">
