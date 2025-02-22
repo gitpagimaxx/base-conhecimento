@@ -7,7 +7,7 @@
         <div class="col-sm-3 mb-2">
             <div class="card">
                 <div class="card-header">
-                    <b>Qtd. Conhecimentos</b>
+                    <b>Conhecimentos</b>
                 </div>
                 <div class="card-body">
                     <h1 class="text-center">{{$qtdeConhecimento}}</h1>
@@ -21,7 +21,7 @@
         <div class="col-sm-3 mb-2">
             <div class="card">
                 <div class="card-header">
-                    <b>Qtd. Memórias</b>
+                    <b>Memórias</b>
                 </div>
                 <div class="card-body">
                     <h1 class="text-center">{{$qtdeMemorias}}</h1>
@@ -35,7 +35,7 @@
         <div class="col-sm-3 mb-2">
             <div class="card">
                 <div class="card-header">
-                    <b>Qtde. O que vi</b>
+                    <b>O que vi</b>
                 </div>
                 <div class="card-body">
                     <h1 class="text-center">{{ $qtdeMidias }}</h1>
@@ -69,6 +69,10 @@
                     <b>Últimos 5 conhecimentos</b>
                 </div>
                 <div class="card-body">
+                    <a href="{{ url(ENV('APP_URL')) }}/dashboard/conhecimento/create" class="btn btn-primary btn-sm mb-4">
+                        <i class="fas fa-plus-circle"></i>&nbsp;
+                        Novo
+                    </a>
                     <table class="table table-striped table-hover table-sm">
                         <thead>
                             <tr>
@@ -104,6 +108,10 @@
                     <b>Últimas 5 memórias</b>
                 </div>
                 <div class="card-body">
+                    <a href="{{ url(ENV('APP_URL')) }}/dashboard/memorias/criar" class="btn btn-primary btn-sm mb-4">
+                        <i class="fas fa-plus-circle"></i>&nbsp;
+                        Novo
+                    </a>
                     <table class="table table-striped table-hover table-sm">
                         <thead>
                             <tr>

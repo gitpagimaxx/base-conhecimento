@@ -1,36 +1,20 @@
-<?php
-setlocale(LC_MONETARY, 'pt_BR');
-
-?>
-
+<?php setlocale(LC_MONETARY, 'pt_BR'); ?>
 <!doctype html>
 <html lang="pt-br" translate="no">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#4976bf">
     <base href="{{ url(ENV('APP_URL')) }}/">
-
-    <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-
     <title>@yield('titulo')</title>
-
-    <!-- Scripts -->
     <script src="{{ url(ENV('APP_URL')) }}/js/app.js" defer></script>
-    
-
-    <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
-
     <script src="https://kit.fontawesome.com/60279106a5.js" crossorigin="anonymous"></script>
-
-    <!-- Styles -->
     <link href="{{ url(ENV('APP_URL')) }}/css/app.css" rel="stylesheet">
     <link href="{{ url(ENV('APP_URL')) }}/css/custom.css" rel="stylesheet">
-
     <link rel="icon" href="{{ url(ENV('APP_URL')) }}/images/picone.png" />
-    
 </head>
 <body>
     <div id="app">
