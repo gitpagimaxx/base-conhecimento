@@ -35,7 +35,7 @@
                                 @foreach ($list ?? '' as $item)
                                     <tr>
                                         <td><a href="{{ url(ENV('APP_URL')) }}/dashboard/tag/{{ $item->id }}/edit" title="Detalhar">{{ $item->Tag }}</a></td>
-                                        <td style="width:160px;">{{ date('d/m/Y H:i', strtotime($item->created_at)) }}</td>
+                                        <td style="width:90px;">{{ date('d/m/Y', strtotime($item->created_at)) }}</td>
                                         <td style="width:130px;" class="text-right">
                                             <a href="{{ url(ENV('APP_URL')) }}/dashboard/tag/{{ $item->id }}/edit" class="btn btn-sm btn-success" data-bs-toggle="tooltip" data-bs-placement="top" title="Detalhar"><i class="fas fa-edit"></i></a>
                                             <a href="{{ url(ENV('APP_URL')) }}/dashboard/tag/{{ $item->id }}/delete" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></a>

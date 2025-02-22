@@ -24,10 +24,10 @@
                     <div class="row">
                         <div class="col">
                             <form action="{{ url(ENV('APP_URL')) }}/dashboard/memorias" method="get" class="row g-3">
-                                <div class="col-11">
+                                <div class="col-10">
                                     <input type="search" class="form-control" name="buscar" id="buscar" placeholder="Buscar..." value="{{ $palavra }}">
                                 </div>
-                                <div class="col-1">
+                                <div class="col-2 text-right">
                                     <button type="submit" class="btn btn-primary mb-3">Buscar</button>
                                 </div>
                             </form>
@@ -57,7 +57,7 @@
                                     @foreach ($list ?? '' as $item)
                                         <tr>
                                             <td><a href="{{ url(ENV('APP_URL')) }}/dashboard/memorias/{{ $item->id }}">{{ $item->Atividade }}</a></td>    
-                                            <td style="width:130px;">{{ date('d/m/Y', strtotime($item->DtHrMemoria)) }}</td>
+                                            <td style="width:90px;">{{ date('d/m/Y', strtotime($item->DtHrMemoria)) }}</td>
                                             <td style="width:130px;" class="text-right">
                                                 <a href="{{ url(ENV('APP_URL')) }}/dashboard/memorias/{{ $item->id }}" class="btn btn-sm btn-primary" data-bs-toggle="tooltip" data-bs-placement="top" title="Detalhar"><i class="fas fa-info-circle"></i></a>
                                                 <a href="{{ url(ENV('APP_URL')) }}/dashboard/memorias/{{ $item->id }}/edit" class="btn btn-sm btn-success" data-bs-toggle="tooltip" data-bs-placement="top" title="Editar"><i class="fas fa-edit"></i></a>

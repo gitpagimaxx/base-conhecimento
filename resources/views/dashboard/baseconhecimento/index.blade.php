@@ -30,10 +30,10 @@
                                         <option value="2" @if ($tipoBusca == '2') selected @endif>Tag</option>
                                     </select>
                                 </div>
-                                <div class="col-sm-9">
+                                <div class="col-sm-8">
                                     <input type="search" class="form-control" name="buscar" id="buscar" placeholder="Buscar..." value="{{ $palavra }}">
                                 </div>
-                                <div class="col-sm-1">
+                                <div class="col-sm-2 text-right">
                                     <button type="submit" class="btn btn-primary mb-3">Buscar</button>
                                 </div>
                             </form>
@@ -64,7 +64,7 @@
                                     @foreach ($list ?? '' as $item)
                                     <tr>
                                         <td><a href="{{ url(ENV('APP_URL')) }}/dashboard/conhecimento/{{ $item->id }}">{{ $item->Titulo }}</a></td>    
-                                        <td style="width:200px;"> 
+                                        <td style="width:150px;"> 
                                             @foreach ($item->Tags as $key => $value)
                                                 <span class="badge text-white bg-primary mr-1">{{ $value->Tag; }}</span>
                                             @endforeach
