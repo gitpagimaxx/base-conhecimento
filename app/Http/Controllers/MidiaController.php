@@ -50,28 +50,12 @@ class MidiaController extends Controller
     
             if ($palavra) {
                 
-                if (Request('tipoBusca') == 1) {
-                    $list = DB::table('midia')
-                    ->select('midia.id', 'midia.Titulo', "midia.created_at", 'xxxx')
+                $list = DB::table('midia')
+                    ->select('id', 'Titulo', 'Data', "created_at")
                     ->where($where)
-                    ->where($whereTipoBusca)
-                    ->orWhere($orWhereTipoBusca)
                     ->orderBy('midia.created_at', 'desc')
                     ->paginate(10);
-                }
-                else {
-    
-                    // $tags = DB::table('tag')->select('id')->where([[ 'tag.Tag', 'LIKE', '%' . $palavra . '%' ]]);
-    
-                    // $list = DB::table('base_conhecimento')
-                    // ->join('base_tag', 'base_conhecimento.id', '=', 'base_tag.BaseId')
-                    // ->select('base_conhecimento.id', 'base_conhecimento.Titulo', 'base_conhecimento.created_at', 'base_tag.TagId')
-                    // ->where($where)
-                    // ->whereIn('base_tag.TagId', $tags)
-                    // ->orderBy('base_conhecimento.created_at', 'desc')
-                    // ->paginate(10);
-                }
-    
+
                 Pesquisa::create(['Palavra'=>Request('buscar'), 'Tela'=>'midia']);
     
             } else {
@@ -233,7 +217,7 @@ class MidiaController extends Controller
                     ['UserId', '=', auth()->user()->id], 
                     [ 'id', '=', $id ] ])
                 ->firstOrFail();
-            $item->Anexo = (new AnexoController)->anexoPorId($item->id);
+            $item->Anexo = (new AnexoController)->anexoPorEntidadeId($item->id);
             return $item;
         } catch (\Throwable $th) {
             dd($th);

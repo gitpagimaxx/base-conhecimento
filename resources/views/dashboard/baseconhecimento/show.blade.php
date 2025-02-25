@@ -63,7 +63,7 @@
                 <div class="card-footer">
                     <input type="hidden" name="UserId" value="{{ Auth::user()->id }}">
                     <a href="{{ url(ENV('APP_URL')) }}/dashboard/conhecimento/{{ $item[0]->id }}/edit" class="btn btn-success"><i class="fas fa-edit"></i>&nbsp;Editar</a>&nbsp;
-                    <a href="{{ url(ENV('APP_URL')) }}/dashboard/conhecimento/{{ $item[0]->id }}/delete" class="btn btn-outline btn-danger"><i class="fas fa-trash"></i>Excluir</a>&nbsp;&nbsp;
+                    <a href="{{ url(ENV('APP_URL')) }}/dashboard/conhecimento/{{ $item[0]->id }}/delete" class="btn btn-outline btn-danger"><i class="fas fa-trash"></i>&nbsp;Excluir</a>&nbsp;&nbsp;
                     <a href="{{ url(ENV('APP_URL')) }}/dashboard/conhecimento" class="btn btn-outline-secondary"><i class="fas fa-arrow-left"></i>&nbsp;Voltar a lista</a>
                 </div>
 

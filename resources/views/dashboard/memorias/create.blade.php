@@ -25,7 +25,7 @@
 
                         <div class="form-group">
                             <label for="DtHrMemoria">Quando?</label>
-                            <input type="date" class="form-control col-sm-2" name="DtHrMemoria">
+                            <input type="date" class="form-control col-sm-3 col-2" name="DtHrMemoria" value="{{ date('Y-m-d') }}">
                         </div>
 
                         <div class="form-group">

@@ -25,6 +25,15 @@ class AnexoController extends Controller
         }
     }
 
+    public function anexoPorEntidadeId($entidadeId)
+    {
+        try {
+            return Anexo::where([ ['Status', '=', '1'], ['UserId', '=', auth()->user()->id], [ 'EntidadeId', '=', $entidadeId ] ])->orderBy('id', 'DESC')->get();
+        } catch (\Throwable $th) {
+            dd($th);
+        }
+    }
+
     public function uploadAnexo(Request $request, $entidadeId)
     {
         try {
