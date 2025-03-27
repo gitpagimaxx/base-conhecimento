@@ -25,6 +25,9 @@
                         <div class="form-group">
                             <label for="Detalhamento">Detalhe aqui tudo o aprendeu</label>
                             <textarea class="form-control" name="Detalhamento" rows="10">{{ old('Detalhamento', $item[0]->Detalhamento) }}</textarea>
+                            <p>
+                                <small><a href="https://markdownguide.offshoot.io/basic-syntax/" target="_blank">Dicas de Formatação do Texto com Markdown</a></small>
+                            </p>
                         </div>
                         
                         <div class="form-group">
