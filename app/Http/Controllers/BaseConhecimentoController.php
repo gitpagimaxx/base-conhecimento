@@ -17,21 +17,24 @@ use App\Http\Controllers\AnexoController;
 use App\Http\Controllers\TagController;
 use App\Http\Controllers\BaseTagController;
 use Spatie\LaravelMarkdown\MarkdownRenderer;
+use App\Services\OpenAIService;
 
 class BaseConhecimentoController extends Controller
 {
     public $errorMessage = 'Ocorreu um erro ao registrar';
     protected $markdownRenderer;
+    protected $openAIService;
 
     /**
      * Create a new controller instance.
      *
      * @return void
      */
-    public function __construct(MarkdownRenderer $markdownRenderer)
+    public function __construct(MarkdownRenderer $markdownRenderer, OpenAIService $openAIService)
     {
         $this->middleware('auth');
         $this->markdownRenderer = $markdownRenderer;
+        $this->openAIService = $openAIService;
     }
 
     /**
@@ -267,5 +270,16 @@ class BaseConhecimentoController extends Controller
         } catch (\Throwable $th) {
             dd($th);
         }
+    }
+
+    public function generate(Request $request)
+    {
+        $request->validate([
+            'prompt' => 'required|string',
+        ]);
+
+        $text = $this->openAIService->generateText($request->input('prompt'));
+
+        return response()->json(['generated_text' => $text]);
     }
 }
